@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+.card-body
+{
+background-color: #1E90FF;
+color: white;
+
+}
+
+.card
+{
+
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 10px;
+}
+.family {
+
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+h3
+{
+
+	text-align: center;
+}
+
+h1
+{
+	text-align: center;
+	background-color: lightblue;
+}
+form
+{
+	margin-left: 310px
+}
+.content
+{
+
+}
+.head
+{
+	text-align: center;
+}
+

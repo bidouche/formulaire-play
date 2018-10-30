@@ -1,16 +1,77 @@
+<h1>Inscris toi</h1>
+</br></br></br>
+<div class="container-fluid">
+  <h3>version from</h3>
+  </br>
+    <form  class= "col-md-6" action="create" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="username">Votre nom</label>
+          <input class="form-control" type="text" name="username" placeholder="jean dupont">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="email">Votre email</label>
+          <input class="form-control" type="text" name="email" placeholder="jean.dupont@mail.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="bio">Votre Bio</label>
+          <textarea class="form-control" rows="3" name="bio" placeholder="Tell me your life."></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <button type="submit" class="btn btn-primary btn-lg btn-block" >Valider</button>
+        </div>
+      </div> 
+    </form>
+  </br></br></br>
+
+  
+  <h3>version form_tag</h3>
+  </br>
+  <div class="form-row">
+    <%= form_tag("create", method: :post, class: "col-md-6") do %>
+    <div class="form-group col-md-12">
+      <%= label_tag 'Votre nom' %>
+      <%= text_field_tag 'username', nil, placeholder:'jean dupont', class: "form-control" %>
+    </br>
+      <%= label_tag 'Votre email' %>
+      <%= text_field_tag 'email', nil, placeholder:'jean.dupont@mail.com',class: "form-control"  %>
+    </br>
+      <%= label_tag 'Votre Bio' %>
+      <%= text_area_tag 'bio', nil, placeholder:'Tell me your life.', class: "form-control", rows: "3" %>
+    </br>
+        <%= submit_tag "Valider", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
+      <% end %>
+  </div>
+  </br></br></br>
 
 
-<%= form_tag url_for(action: 'create'), method: "post" do %>
-      <%= text_field_tag 'username', placeholder='username', name='username'%>
-      <br /> <br />      
-      <%= text_field_tag 'email' , placeholder='email' , name='email'%>
-      <br /> <br />
-      <%= text_field_tag 'bio', placeholder='bio', name='bio'%>
-      <br /> <br />
-      <%= submit_tag "Create" %>
-
+  
+  <h3>version form_for</h3>
+  </br>
+  <div class="form-row">
+    <%= form_for @user, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
+        <div class="col-md-12 form-group">
+            <%= f.label "Votre nom"%>
+            <%= f.text_field :username, placeholder: 'jean dupont', class: "form-control" %>
+         </br>
+          <div class="form-group">
+            <%= f.label "Votre email"%>
+            <%= f.text_field :email, placeholder: 'jean.dupont@mail.com', class: "form-control"%>
+          </br>
+        <%= f.label "Votre bio"%>
+        <%= f.text_area :bio, size: "30x3", placeholder: 'Tell me your life.', class: "form-control" %>
+      </br>
+        <%= f.submit "Valider", class: "btn btn-primary btn-lg btn-block" %>
+      </div>
     <% end %>
-
-
-
-
+  </div>
+</div>
