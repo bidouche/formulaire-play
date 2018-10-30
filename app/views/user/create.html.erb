@@ -1,0 +1,15 @@
+<div class="content"> 
+     <h1> Hey <%= @users.last.username %> ! </h1>
+     <h2>You are now part of the family:</h2>
+    <%= link_to("Create a new member", "/") %>
+<div class="family">
+
+         <% @users.each do |x|%>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title"><%= x.username %></h5>
+    <h6 class="card-title"><%= x.email %></h6>
+    <p class="card-text"><%= x.bio %></p>
+    </div>
+  </div>
+  <% end %>
